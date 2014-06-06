@@ -1,1 +1,35 @@
-This is the code!
+float startButton_x;
+float startButton_y;
+
+PImage photo;
+PImage startButton;
+
+import ddf.minim.*;
+
+Minim minim;
+AudioPlayer player;
+
+void setup() {
+ startButton = loadImage("New_game_button.jpg");
+ frameRate(60);
+ size(1440, 850);
+ startButton_x = 480;
+ startButton_y = 440; 
+ minim = new Minim(this);
+ player = minim.loadFile("Silicon -Valley -Season 1- Opening Sequence (HBO).mp3");
+ player.loop();
+}
+
+void draw() {
+  background(0);
+  image(startButton,525,400);
+ 
+}
+
+void mousePressed() {
+  
+}
+
+if (mousePressed > startButton + 200) {
+  setup();
+}
