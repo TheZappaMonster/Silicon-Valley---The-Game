@@ -1,0 +1,11 @@
+if (stage == 2) {
+    background(255,255,255);
+    fill(0, 255, 77);
+    rect(620, 300, 200, 300);
+    
+    textFont(characterText, 60);  
+  fill(255, 0, 0); 
+  text("Choose your character!", 310, 100);
+  
+  }
+}
