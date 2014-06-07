@@ -2,14 +2,15 @@ int stage;
 
 PImage startButton;
 PImage Background;
-PImage FuckCursor;
 
 PFont characterText;
+PFont allCharacters;
 
 import ddf.minim.*;
 
 Minim minim;
-AudioPlayer player;
+AudioPlayer SiliconIntro;
+AudioPlayer CharacterMusic;
 
 boolean sketchFullScreen(){
   return true;
@@ -21,31 +22,32 @@ void setup() {
  frameRate(60);
  size(1440, 900);
  
- Background = loadImage("yuco_silicon_valley_featured.jpg");
+ Background = loadImage("yuco_silicon_valley_featured.jpg"); //Background
  image(Background, 0, 0, 1440, 900);
- startButton = loadImage("New_game_button.jpg");
- FuckCursor = loadImage("FuckCursor.png");
+ startButton = loadImage("New_game_button.jpg"); //Button
  
- characterText = createFont("BankGothic-Medium", 90, true);
+ characterText = createFont("BankGothic-Medium", 90, true); //Text
+ allCharacters = createFont("Arial", 90, true);
  
  minim = new Minim(this);
- player = minim.loadFile("Silicon Valley Intro.mp3");
+ SiliconIntro = minim.loadFile("Silicon Valley Intro.mp3");
+ CharacterMusic = minim.loadFile("Elevator Music 1 hour.mp3");  //Music
  smooth();
- player.loop();
+ SiliconIntro.loop();
 }
 
 void draw() {
   image(startButton, 525, 720);
-  cursor(FuckCursor);
   
   if (stage == 1) {
     image(startButton, 525, 720);
-    cursor(FuckCursor);
+    
     if (keyPressed == true) {
       stage = 2;
-      player.close();
+      SiliconIntro.close();
     }
   }
+
 
 
 
