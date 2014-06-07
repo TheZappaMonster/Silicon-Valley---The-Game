@@ -1,35 +1,55 @@
-float startButton_x;
-float startButton_y;
+int stage;
 
-PImage photo;
 PImage startButton;
+PImage Background;
+PImage FuckCursor;
+
+PFont characterText;
 
 import ddf.minim.*;
 
 Minim minim;
 AudioPlayer player;
 
+boolean sketchFullScreen(){
+  return true;
+}
+
+
 void setup() {
- startButton = loadImage("New_game_button.jpg");
+ stage = 1;
  frameRate(60);
- size(1440, 850);
- startButton_x = 480;
- startButton_y = 440; 
+ size(1440, 900);
+ 
+ Background = loadImage("yuco_silicon_valley_featured.jpg");
+ image(Background, 0, 0, 1440, 900);
+ startButton = loadImage("New_game_button.jpg");
+ FuckCursor = loadImage("FuckCursor.png");
+ 
+ characterText = createFont("BankGothic-Medium", 90, true);
+ 
  minim = new Minim(this);
- player = minim.loadFile("Silicon -Valley -Season 1- Opening Sequence (HBO).mp3");
+ player = minim.loadFile("Silicon Valley Intro.mp3");
+ smooth();
  player.loop();
 }
 
 void draw() {
-  background(0);
-  image(startButton,525,400);
- 
-}
-
-void mousePressed() {
+  image(startButton, 525, 720);
+  cursor(FuckCursor);
   
-}
+  if (stage == 1) {
+    image(startButton, 525, 720);
+    cursor(FuckCursor);
+    if (keyPressed == true) {
+      stage = 2;
+      player.close();
+    }
+  }
 
-if (mousePressed > startButton + 200) {
-  setup();
-}
+
+
+
+
+
+
