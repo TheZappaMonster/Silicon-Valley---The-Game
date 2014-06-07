@@ -1,11 +1,41 @@
 if (stage == 2) {
     background(255,255,255);
-    fill(0, 255, 77);
-    rect(620, 300, 200, 300);
     
-    textFont(characterText, 60);  
+     if (mousePressed && (mouseButton == LEFT)) {
+    fill(0, 255, 200);
+  } else if (mousePressed && (mouseButton == RIGHT)) {
+    fill(0, 255, 200);
+  } else {
+    fill(0, 255, 0);
+  }
+
+
+    rect(620, 300, 200, 300); //center
+    
+    fill(0, 255, 0);
+    stroke(255, 0, 0);
+    rect(400, 300, 200, 300); //1 left
+  
+    rect(840, 300, 200, 300); //1 right
+    
+    rect(1060, 300, 200, 300); //2 right
+    
+    rect(180, 300, 200, 300); //2 left
+    
+  textFont(characterText, 60);  
   fill(255, 0, 0); 
   text("Choose your character!", 310, 100);
+  
+  textFont(allCharacters, 30);
+  fill(0, 0, 0);
+  text("Richard", 670, 634); //Center
+  text("Erlich", 460, 634); //1 Left
+  text("Gilfoyle", 890, 634); //1 right
+  text("Dinesh", 230, 634); //2 left
+  text("Jared", 1125, 634); //2 right
+  
+  
+  CharacterMusic.play();
   
   }
 }
